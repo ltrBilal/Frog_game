@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Game2D"
+run/main_scene="res://Enemie_fly.tscn"
+config/features=PackedStringArray("4.1", "GL Compatibility")
+boot_splash/bg_color=Color(0.054902, 0, 0, 1)
+config/icon="res://img/icon.svg"
+
+[autoload]
+
+Global="*res://Global.gd"
+SoundPlayer="*res://sounds/sound_player.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+window/per_pixel_transparency/allowed=true
+window/handheld/orientation=1
+
+[physics]
+
+2d/default_gravity=2500.0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/size/viewport_height=648
+environment/size/viewport_width=1152
+environment/size/window_height_override=0
+environment/size/window_width_override=0
+environment/stretch/mode="disabled"

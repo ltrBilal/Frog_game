@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ioqwn376sqa"]
+
+[ext_resource type="Texture2D" uid="uid://rjtjvfb36g33" path="res://img/tilemap_packed.png" id="1_pfu6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yduep"]
+size = Vector2(82, 35)
+
+[node name="Spiker_scene" type="Node2D"]
+
+[node name="Spiker" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Spiker"]
+texture_filter = 1
+position = Vector2(32, 13.5)
+scale = Vector2(5, 3.7)
+texture = ExtResource("1_pfu6i")
+region_enabled = true
+region_rect = Rect2(145, 63, 16, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spiker"]
+position = Vector2(32, 11.5)
+shape = SubResource("RectangleShape2D_yduep")

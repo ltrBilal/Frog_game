@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8sxarrswmkr6"]
+
+[ext_resource type="Shader" path="res://game.gdshader" id="1_5fn2l"]
+[ext_resource type="PackedScene" uid="uid://24khr505fm8p" path="res://main.tscn" id="1_fkghw"]
+[ext_resource type="Script" path="res://game.gd" id="1_wfp22"]
+[ext_resource type="Texture2D" uid="uid://b57f85kvps6ke" path="res://img/mouche-removebg-preview.png" id="4_2redx"]
+[ext_resource type="Texture2D" uid="uid://chid42evkwoo1" path="res://Tiles red/tileRed_12.png" id="5_tk3ly"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85mi6"]
+shader = ExtResource("1_5fn2l")
+shader_parameter/cam_offset = Vector2(0, 0)
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_wfp22")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 724.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+auto_translate = false
+localize_numeral_system = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+material = SubResource("ShaderMaterial_85mi6")
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 640)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Node" parent="HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_fkghw")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Node2D"]
+offset_left = 410.245
+offset_top = 567.875
+offset_right = 747.245
+offset_bottom = 625.875
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/HBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_2redx")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/HBoxContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Diamond"
+horizontal_alignment = 1
+vertical_alignment = 2
+text_overrun_behavior = 2
+tab_stops = PackedFloat32Array(0)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Node2D/HBoxContainer3"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("5_tk3ly")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Node2D/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "coeur"
